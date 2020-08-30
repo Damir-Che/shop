@@ -51,6 +51,18 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  #голосование
+  def upvote
+    @item = Item.find(params[:id])
+    @item.increment!(:votes_count)
+    redirect_to action: :index
+  end
+
+  #выводим самы дорогие товары
+  def expensive
+    @items = Item.where("price > 1000")
+    render "index"
+  end
 
   private
 

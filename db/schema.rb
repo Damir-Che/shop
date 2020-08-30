@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_144448) do
+ActiveRecord::Schema.define(version: 2020_08_30_114725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(version: 2020_08_29_144448) do
     t.string "name"
     t.boolean "real"
     t.float "weight"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "description"
+    t.integer "votes_count", default: 0
+    t.index ["name"], name: "index_items_on_name"
+    t.index ["price"], name: "index_items_on_price"
   end
 
 end
