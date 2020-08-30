@@ -26,13 +26,13 @@ class ItemsController < ApplicationController
   end
   #--------------------------------
 
-  # /items/1/edit GET
-  def edit
+
+  def edit # /items/1/edit GET
     #находит в БД запись с нужным id и отправляет заполненую форму в update
     @item = Item.find(params[:id])
   end
-  # /items/1 PUT
-  def update
+
+  def update # /items/1 PUT
     @item = Item.find(params[:id])
     @item.update_attributes(item_params)
     if @item.errors.empty?
@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
     @items = Item.where("price > 1000")
     render "index"
   end
+
 
   private
 
