@@ -8,4 +8,6 @@ class Item < ApplicationRecord
 
   has_many :positions #связь THROUGH
   has_many :carts, through: :positions#связь THROUGH
+
+  has_many :comments, as: :commentable
 end
